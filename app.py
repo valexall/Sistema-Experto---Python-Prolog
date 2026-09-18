@@ -61,14 +61,12 @@ class SistemaExpertoGUI:
         self.crear_widgets()
         
     def crear_widgets(self):
-        # Título
         lbl_titulo = ttk.Label(self.root, text="Diagnóstico Médico", font=("Helvetica", 16, "bold"))
         lbl_titulo.pack(pady=(0, 10))
         
         lbl_instrucciones = ttk.Label(self.root, text="Selecciona los síntomas que presentas:")
         lbl_instrucciones.pack(anchor="w", pady=(0, 10))
         
-        # Frame para la lista con scrollbar
         frame_lista = ttk.Frame(self.root)
         frame_lista.pack(fill="both", expand=True)
         
@@ -87,7 +85,7 @@ class SistemaExpertoGUI:
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
         
-        # Crear los checkboxes
+
         for sintoma in self.sintomas:
             var = tk.BooleanVar()
             self.variables_sintomas[sintoma] = var
@@ -95,11 +93,10 @@ class SistemaExpertoGUI:
             chk = ttk.Checkbutton(self.frame_sintomas, text=texto_sintoma, variable=var)
             chk.pack(anchor="w", pady=2)
             
-        # Botón para diagnosticar
+
         btn_diagnosticar = ttk.Button(self.root, text="Realizar Diagnóstico", command=self.ejecutar_diagnostico)
         btn_diagnosticar.pack(pady=20)
-        
-        # Área de resultados
+  
         lbl_resultado = ttk.Label(self.root, text="Resultados:", font=("Helvetica", 12, "bold"))
         lbl_resultado.pack(anchor="w")
         
@@ -141,12 +138,11 @@ def main():
 
     root = tk.Tk()
     
-    # Aplicar un tema un poco más moderno si está disponible en Windows
     try:
         root.tk.call("source", "azure.tcl")
         root.tk.call("set_theme", "light")
     except:
-        pass # Ignorar si no tenemos temas externos instalados
+        pass 
         
     app = SistemaExpertoGUI(root, prolog, todos_sintomas)
     root.mainloop()

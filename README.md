@@ -50,6 +50,38 @@ graph TD
     class MotorProlog,BaseConocimiento prolog;
 ```
 
+## Base de Conocimiento (`enfermedades.pl`)
+
+La base de conocimiento fue construida y verificada a partir de fuentes médicas oficiales:
+
+| Fuente | URL |
+|---|---|
+| OMS (Organización Mundial de la Salud) | https://www.who.int/es/news-room/fact-sheets |
+| CDC (Centers for Disease Control) | https://www.cdc.gov |
+| Mayo Clinic | https://www.mayoclinic.org |
+| PAHO (Org. Panamericana de la Salud) | https://www.paho.org |
+
+>**Aviso:** Este sistema es solo un simulador con fines educativos. No reemplaza el diagnóstico de un profesional médico.
+
+### Enfermedades y síntomas reconocidos
+
+| Enfermedad | Fuente | Síntomas Clave |
+|---|---|---|
+| Resfriado común | CDC | Congestión nasal, estornudos, dolor de garganta, tos leve, fiebre baja |
+| Gripe (Influenza) | OMS | Fiebre alta súbita, tos, dolor muscular, fatiga intensa, escalofríos |
+| Neumonía | CDC | Fiebre alta, tos con flema, dificultad respiratoria, dolor en el pecho |
+| COVID-19 | OMS / CDC | Fiebre, tos seca, pérdida de olfato/gusto, dificultad respiratoria |
+| Dengue | OMS / PAHO | Fiebre alta, dolor retroocular, dolor articular, erupción cutánea |
+| Tuberculosis | OMS | Tos persistente, esputo con sangre, sudores nocturnos, pérdida de peso |
+| Gastroenteritis | CDC / Mayo Clinic | Náuseas, vómitos, diarrea, dolor abdominal, fiebre baja |
+| Migraña | Mayo Clinic | Dolor de cabeza intenso/pulsátil, fotofobia, fonofobia, visión borrosa |
+| Anemia | Mayo Clinic | Fatiga, palidez, mareos, debilidad, palpitaciones, extremidades frías |
+| Hipertensión arterial | OMS | Dolor de cabeza, visión borrosa, dolor en el pecho, palpitaciones |
+
+### Arquitectura dinámica de la base de conocimiento
+
+La aplicación lee la base de conocimiento **dinámicamente** al iniciarse: no hay nombres de enfermedades ni síntomas codificados en `app.py`. Esto significa que **basta con editar `enfermedades.pl`** para agregar, quitar o modificar enfermedades sin tocar el código Python.
+
 ## Estructura de Archivos
 
 - `app.py`: Archivo principal de Python. Contiene la lógica de la interfaz de usuario y la comunicación con Prolog.
